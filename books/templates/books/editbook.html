@@ -1,0 +1,62 @@
+{% extends 'home/layouts/index.html' %}
+{% load static %}
+
+{%block stylesheets%}
+<link rel="stylesheet" href="{% static 'books\css\editbook.css' %}">
+{%endblock%}
+
+{%block books%}
+
+
+
+
+
+
+<!-- ********** Start Check Book Section ********** -->
+
+<section class="check-book">
+    <div class="container">
+        <div class="book" style="text-align: center;">
+            <img src=" {% static 'books/pic/'|add:book.img%}" alt="{{book.name}}">
+            <div class="text">
+                <h2>{{book.name}}</h2>
+                <p>{{book.description}}</p>
+                <span class="s">
+                    <span><sup>$</sup>{{book.price}}</span> 
+                    
+                    {% if book.status == 't' %}
+                    <pre class = "not-borr" >
+                        {{book.get_status_display}}
+                    </pre>
+                    {%else%}
+                    <p> Available After: {{book.return_date}}</p>
+                    <pre class = "borr">{{book.get_status_display}}  </pre>
+                    {%endif%}
+                    
+                </span>
+            </div>
+                <form action="{% url 'editBook' book.id %} " method="POST" class="edit-form">
+                    {%csrf_token%}
+                    {{editform}}
+                    <div>
+                        <input type="submit" name="edit-{{book.name}}" id="" value="Edit" >
+                    </div>
+                </form>
+
+                <form action="{% url 'delBook' book.id %}" method="POST" class="del-form">
+                    {%csrf_token%}
+                    <div>
+                        <input type="submit" name="delete-{{book.name}}" id="" value="Delete" >
+                    </div>
+                </form>
+                
+        </div>
+    </div>
+</section>
+
+<!-- End Check Book Section -->
+
+
+
+
+{%endblock%}

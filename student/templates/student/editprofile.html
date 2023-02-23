@@ -1,0 +1,46 @@
+{% extends 'home/layouts/index.html' %}
+{% load static %}
+
+{%block stylesheets%}
+    <link rel="stylesheet" href="{% static 'student\css\signup.css' %}">
+{%endblock%}
+
+{%block login%}
+<section class="landing">
+    <div class="overlay">
+      
+        <section class="signup">
+            <div class="container">
+                <form method="POST">
+                    <h1>Edit Profile</h1>
+                    {%if messages%}
+                        {%for msg in messages%}
+                            <p>{{msg.text}}</p>
+                        {%endfor%}
+                    {%endif%}
+                    {% csrf_token %}
+                    <!-- student form -->
+                    {%for field in studentform%}
+                        
+                        {{field}}
+                        <p>{{field.errors.as_text}}</p>
+                        
+                    {%endfor%}
+                    <!-- user form -->
+                    {%for field in form%}
+                        
+                        {{field}}
+                        <p>{{field.errors.as_text}}</p>
+                        
+                    {%endfor%}
+                    
+
+                    <input type="submit" name="" id="" value="Save" class="sub-bttn">
+                </form>
+
+            </div>
+        </section>
+        <!-- ********** End SignUp Section ********** -->
+    </div>
+</section>
+{%endblock%}

@@ -1,0 +1,105 @@
+{% extends 'home/layouts/index.html' %}
+{% load static %}
+
+{%block stylesheets%}
+<link rel="stylesheet" href="{% static 'books\css\books.css' %}">
+<link rel="stylesheet" href="{% static 'books\css\book.css' %}">
+{%endblock%}
+
+{%block books%}
+
+
+
+
+
+
+<!-- ********** Start Check Book Section ********** -->
+
+<section class="check-book">
+    <div class="container">
+        <div class="book" style="text-align: center;">
+            <img src=" {% static 'books/pic/'|add:book.img%}" alt="{{book.name}}">
+            <div class="text">
+                <h2>{{book.name}}</h2>
+                <p>{{book.description}}</p>
+                <span class="s">
+                    <span><sup>$</sup>{{book.price}}</span> 
+                    
+                    {% if book.status == 't' %}
+                    <pre class = "not-borr" >
+                        {{book.get_status_display}}
+                    </pre>
+                    {%else%}
+                    <p> Available After: {{book.return_date}}</p>
+                    <pre class = "borr">{{book.get_status_display}}  </pre>
+                    {%endif%}
+                    
+                </span>
+            </div>
+            {% if book.status == 't' %}     
+                <form action="{% url 'borrowBook' book.id %}" method="GET" class="borrow-form">
+                    <div>
+                        <label for="return_date">Set Return Date</label>
+                        <input type="date" name="return_date" required min="{{todayDate}}">
+                    </div>
+                    <input type="submit" name="borrow-{{book.name}}" id="" value="Borrow" >
+                </form>
+            {%endif%}
+        </div>
+    </div>
+</section>
+
+<!-- End Check Book Section -->
+
+
+
+<!-- ********** Start Books Section ********** -->
+
+
+<section class="books" id="books">
+    <div class="container">
+        <!-- Start Category Of Books-->
+            <div class="component">
+                <h2>Other Books In {{cat}} Category.</h2>
+                <hr>
+                <!-- Start Books -->
+                <div class="component-books">
+                    <!-- Angle -->
+                    <i class="fas fa-angle-left left"></i>
+                    <i class="fas fa-angle-right right"></i>
+                    <!-- Angle -->
+                    {% for catBook in catBooks %}    
+                        <!-- Start book-1 -->
+                        <div class="col">
+                            <div class="book">
+                                <img src=" {% static 'books/pic/'|add:catBook.img%}" alt="{{catBook.name}}">
+                                <div class="text">
+                                    <h3>{{catBook.name}}</h3>
+                                    <span class="s">
+                                        <span><sup>$</sup>{{catBook.price}}</span> 
+                                        <pre
+                                        {% if catBook.status == 't' %}
+                                            class = "not-borr"
+                                        {%else%}
+                                            class = "borr"
+                                        {%endif%}
+                                        >   {{catBook.get_status_display}}</pre>
+                                    </span>
+                                </div>
+                            </div>
+                            <a href="{% url 'viewBook' catBook.id %}">Check Out</a>
+                        </div>
+                        <!-- End book-1 -->
+                    {% endfor %}
+
+                </div>
+                <!-- End Books -->
+            </div>
+            <!-- End Category Of Books-->
+            <hr>            
+    </div>
+</section>
+<!-- ********** End Books Section ********** -->
+
+
+{%endblock%}

@@ -1,0 +1,56 @@
+{% extends 'home/layouts/index.html' %}
+{% load static %}
+
+{%block stylesheets%}
+    <link rel="stylesheet" href="{% static 'books\css\student_books.css' %}">
+{%endblock%}
+
+{%block books%}
+
+
+
+
+
+
+
+
+    <section class="books" id="books">
+        <div class="container">
+            <!-- Start My Purchases -->
+            <div class="component">
+                <h2>My Purchases</h2>
+                <hr>
+                <!-- Start My Purchases Books -->
+                <div class="component-books">
+                    {% for book in books %}    
+                    <!-- Start book-1 -->
+                    <div class="col">
+                        <div class="book">
+                            <img src=" {% static 'books/pic/'|add:book.img%}" alt="{{book.name}}">
+                            <div class="text">
+                                <h3>{{book.name}}</h3>
+                                
+                            </div>
+                        </div>
+                        <a href="{% url 'returnBook' book.id %}">Return Book</a>
+                    </div>
+                    <!-- End book-1 -->
+                {% endfor %}
+                <!-- Start ADD Book -->
+                <div class="col-add">
+                    <div class="add-book">
+                        <a href="{%url 'home' %}" class="add">
+                            <i class="fas fa-plus"></i>
+                            Add A Book
+                            </a>
+                    </div>
+                </div>
+                <!-- End ADD Book -->
+            </div>
+            <!-- End My Purchases Books -->
+        </div>
+        <!-- End My Purchases -->
+    </div>
+    <!-- ********** End Books Section ********** -->
+
+{%endblock%}

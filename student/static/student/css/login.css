@@ -1,0 +1,123 @@
+
+/* ********** Start Login Section ********** */
+
+  /* ********** Start Landing Section ********** */
+.landing {
+  height: calc(100vh - 145px);
+  background: url(../pic/glasses-1052010_1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 60px;
+}
+.landing .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 70%);
+}
+/* Medium */
+@media (max-width: 992px) {
+  /* Edit */
+  .landing {
+    height: calc(100vh - 70px);
+  }
+}
+
+
+/* ********** End Landing Section ********** */
+
+  .login .container {
+    height: calc(100vh - 145px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login .container form {
+    padding-bottom: 40px;
+    width: 470px;
+    border-radius: 5px;
+    position: relative;
+    background: rgba(0, 0, 0, 55%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .login .container form h1 {
+    color: #58706e;
+    padding: 20px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    margin: 0 0 35px 0;
+    background: rgba(0, 0, 0, 55%);
+  }
+  .login .container form input {
+    color: #c0c0c1;
+    position: relative;
+    font-size: 22px;
+    height: 55px;
+    width: 85%;
+    background: rgba(3, 3, 1, 60%);
+    border-radius: 5px 20px 5px 20px;
+    padding: 10px 15px;
+    margin: 10px 0 35px 0;
+    outline: none;
+  }
+  .login .container form input:hover {
+    background: rgba(3, 3, 1, 90%);
+  }
+  .login .container form div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+  .login .container form div input,
+  .login .container form div a {
+    color: #859985;
+    background-color: #252c2c;
+    padding: 5px 25px;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    width: 170px;
+    height: 50px;
+    margin: 0;
+  }
+  .login .container form div input:hover,
+  .login .container form div a:hover {
+    background-color: #2c4755;
+    color: #faf3f0;
+  }
+  .login .container form div a {
+    text-decoration: none; 
+  }
+  .login .container form p {
+    color: rgb(170, 5, 5);
+  }
+  /* .login .container form ul input {
+    color: #859985;
+    background-color: #252c2c;
+    padding: 5px 25px;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .login .container form ul a {
+    text-decoration: none;
+    color: #859985;
+    background-color: #252c2c;
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+  }
+} */
+  /* ********** End Login Section ********** */

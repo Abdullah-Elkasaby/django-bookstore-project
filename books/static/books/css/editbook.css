@@ -1,0 +1,135 @@
+
+
+.check-book {
+    margin-bottom: 70px;
+    padding: 55px 0;
+    background-color: #ccc;
+}
+.check-book .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.check-book .container .book {
+    padding: 18px 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(158, 155, 155);
+}
+.check-book .container .book img {
+    height: 400px;
+    width: 300px;
+    border-radius: 5px;
+}
+.check-book .container .book .text {
+    max-width: 500px;
+}
+.check-book .container .book .text h2 {
+    font-size: 33px;
+    margin: 10px 0;
+    font-weight: 550;
+    color: #444;
+}
+.check-book .container .book .text p {
+    color: #ccc;
+}
+.check-book .container .book .text .s {
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    padding: 5px;
+}
+.check-book .container .book .text .s span {
+    font-size: 24px;
+    color: #444;
+}
+.check-book .container .book .text .s pre {
+    font-size: 22px;
+}
+
+.check-book .container .book .text .s .not-borr {
+    color: green;
+}
+.check-book .container .book .text .s .borr {
+    color: red;
+}
+.check-book .container .book .edit-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+}
+.check-book .container .book .edit-form div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.check-book .container .book .edit-form div label {
+    color: #333;
+}
+.check-book .container .book .edit-form div input {
+    padding: 0px;
+    color: #000;
+    border: 1px solid #777;
+    border-radius: 3px;
+    background-color: transparent;
+}
+.check-book .container .book .edit-form input {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #333;
+    color: #DDD;
+    border-radius: 3px;
+}
+.check-book .container .book .edit-form select[name="category"] {
+    height: 30px;
+    width: 150px;
+    border: 1px solid green;
+    outline: none;
+    background-color: #DDD;
+    margin-bottom: 20px;
+}
+
+.check-book .container .book .edit-form textarea {
+    background-color: #ccc;
+    padding: 10px;
+    font-size: 18px;
+}
+.check-book .container .book .edit-form div,
+.check-book .container .book .del-form div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.check-book .container .book .edit-form div input, 
+.check-book .container .book .del-form div input {
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #333;
+    color: #DDD;
+    border-radius: 3px;
+}
+
+.check-book .container .book .del-form div input[type=submit], 
+.check-book .container .book .edit-form div input[type=submit] {
+    height: 40px;
+    width: 80px;
+    text-align: center;
+    border-radius: 7px;
+}
+.check-book .container .book .del-form div input:hover {
+    
+    background-color: red;
+}
+.check-book .container .book .edit-form div input:last-of-type:hover {
+    background-color: green;
+
+}

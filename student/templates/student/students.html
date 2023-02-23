@@ -1,0 +1,42 @@
+{% extends 'home/layouts/index.html' %}
+{% load static %}
+
+{%block stylesheets%}
+    <link rel="stylesheet" href="{% static 'student\css\students.css' %}">
+{%endblock%}
+
+{%block books%}
+
+
+
+    <section class="students" id="students">
+        <div class="container">
+            <!-- Start students -->
+            <div class="component">
+                <h2>Students</h2>
+                <hr>
+                <!-- Start students comp -->
+                <div class="component-students">
+                    {% for std in students %}    
+                    <!-- Start student-1 -->
+                    <div class="col">
+                        <div class="book">
+                            <img src="../../static/student/pic/user.png" alt="{{std.name}}">
+                            <div class="text">
+                                <h3>{{std.firstName}} {{std.lastName}}</h3>
+                                <h3>{{std.mail}}</h3>
+                            </div>
+                        </div>
+                        <a href="">Check Out</a>
+                    </div>
+                    <!-- End student-1 -->
+                {% endfor %}
+                
+            </div>
+            <!-- End students comp -->
+        </div>
+        <!-- End students -->
+    </div>
+    <!-- ********** End Books Section ********** -->
+
+{%endblock%}

@@ -1,0 +1,95 @@
+ /* ********** Start Landing Section ********** */
+ .landing {
+  height: calc(100vh - 145px);
+  background: url(../pic/glasses-1052010_1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 60px;
+}
+.landing .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 70%);
+}
+/* Medium */
+@media (max-width: 992px) {
+  /* Edit */
+  .landing {
+    height: calc(100vh - 70px);
+  }
+}
+
+
+/* ********** End Landing Section ********** */
+
+
+/* start SignUp Section */
+.signup .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+  }
+  .signup .container form {
+    width: 470px;
+    margin: 30px 0;
+    padding-bottom: 20px;
+    min-height: auto;
+    border-radius: 5px;
+    position: relative;
+    background: rgba(0, 0, 0, 55%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  /* error messages */
+  .signup .container form p{
+    color: whitesmoke;
+  }
+  .signup .container form h1 {
+    color: #58706e;
+    padding: 20px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    margin: 0 0 15px 0;
+    background: rgba(0, 0, 0, 55%);
+  }
+  
+  
+  .signup .container form input {
+    color: #c0c0c1;
+    position: relative;
+    font-size: 22px;
+    width: 85%;
+    background: rgba(3, 3, 1, 60%);
+    border-radius: 5px 20px 5px 20px;
+    padding: 12px 15px;
+    margin: 1px 0 2px 0;
+    outline: none;
+  }
+  .signup .container form input:hover {
+    background: rgba(3, 3, 1, 90%);
+  }
+  .signup .container form .sub-bttn {
+    width: 220px;
+    text-decoration: none;
+    color: #859985;
+    background-color: #252c2c;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .signup .container form .sub-bttn:hover {
+    background-color: #2c4755;
+    color: #faf3f0;
+  }
+  /* ********** End Login Section ********** */

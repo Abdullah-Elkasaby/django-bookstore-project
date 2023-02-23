@@ -1,0 +1,80 @@
+{% extends 'home/layouts/index.html' %}
+{% load static %}
+
+{%block stylesheets%}
+    <link rel="stylesheet" href="{% static 'books\css\books.css' %}">
+{%endblock%}
+
+{%block books%}
+
+
+
+
+<!-- ********** Start Landing Section ********** -->
+<section class="landing">
+    <div class="overlay"></div>
+    <div class="intro-text">
+        <h1>Welcome!</h1>
+        <!-- Button Visit -->
+        <button>
+            <a href="#books">Shop Now</a>
+        </button>
+    </div>
+</section>
+<!-- ********** End Landing Section ********** -->
+
+<!-- ********** Start Books Section ********** -->
+
+
+<section class="books" id="books">
+    <div class="container">
+        <!-- Start Category Of Books-->
+        {% for cat in categories %}
+            <div class="component">
+                <h2>{{cat}}</h2>
+                <hr>
+                <!-- Start Books -->
+                <div class="component-books">
+                    <!-- Angle -->
+                    <i class="fas fa-angle-left left"></i>
+                    <i class="fas fa-angle-right right"></i>
+                    <!-- Angle -->
+                    {% for book in cat.books.all %}    
+                        <!-- Start book-1 -->
+                        <div class="col">
+                            <div class="book">
+                                <img src=" {% static 'books/pic/'|add:book.img%}" alt="{{book.name}}">
+                                <div class="text">
+                                    <h3>{{book.name}}</h3>
+                                    <span class="s">
+                                        <span><sup>$</sup>{{book.price}}</span> 
+                                        <pre
+                                        {% if book.status == 't' %}
+                                            class = "not-borr"
+                                        {%else%}
+                                            class = "borr"
+                                        {%endif%} >  {{book.get_status_display}}</pre>
+                                    </span>
+                                </div>
+                            </div>
+                            {%if user.is_staff%}
+                                <a href="{% url 'editBook' book.id %}">Edit Book</a>
+                            {%else%}
+                                <a href="{% url 'viewBook' book.id %}">Check Out</a>
+                            {%endif%}
+                        </div>
+                        <!-- End book-1 -->
+                    {% endfor %}
+
+                </div>
+                <!-- End Books -->
+            </div>
+            <!-- End Category Of Books-->
+            <hr>
+        {% endfor %}
+            
+    </div>
+</section>
+<!-- ********** End Books Section ********** -->
+
+{%endblock%}

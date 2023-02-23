@@ -1,0 +1,32 @@
+{% extends 'home/layouts/index.html' %}
+{% load static %}
+
+{%block stylesheets%}
+<link rel="stylesheet" href="{% static 'books\css\addbook.css' %}">
+{%endblock%}
+
+{%block books%}
+
+<!-- ********** Start Check Book Section ********** -->
+
+<section class="check-book">
+    <div class="container">
+        <div class="book" style="text-align: center;">
+            <img src="../../static/books/pic/gen-book.png">
+                <form action="{% url 'addBook' %}" method="POST" class="add-form">
+                    {{editform}}
+                    {%csrf_token%}
+                    <div>
+                        <input type="submit" name="add-book" id="" value="Add Book" >
+                    </div>
+                </form>
+        </div>
+    </div>
+</section>
+
+<!-- End Check Book Section -->
+
+
+
+
+{%endblock%}

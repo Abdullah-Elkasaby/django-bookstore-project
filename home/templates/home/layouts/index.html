@@ -1,0 +1,159 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Vip Media -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title Page -->
+    <title>Book Shopping Center</title>
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="{% static 'home\css\normalize.css' %}">
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="{% static 'home\css\all.min.css' %}">
+    <!-- Main Template CSS File -->
+    <link rel="stylesheet" href="{% static 'home\css\home.css' %}">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- StyleSheets for other Pages -->
+    {%block stylesheets%}
+    
+    {%endblock%}
+
+</head>
+<body>
+    <div class="up-down">
+        <a href="#">
+            <i class="fas fa-angle-up"></i>
+        </a>
+    </div>
+    <!-- ********** Start Header ********** -->
+    <!-- USER NAME -->
+    <div class="userName">
+        <div class="user">
+            <h1>{{user.first_name}}  {{user.last_name}}</h1>
+            <i class="fas fa-user-check fa-2x userN"></i>
+
+            {% if user.is_staff %}
+                <div class="list admin">
+                    <a href="{% url 'editAdminProfile' %}" class="logOut"> Edit Profile <i class="fas "></i></a>
+                    <hr>
+                    <a href="{% url 'adminSignup' %}" class="logOut"> Create Admin <i class=""></i></a>
+                    <hr>
+                    <a href="{% url 'addBook' %}" class="addBook"> Add a Book  <i class=""></i></a>
+                    <hr>
+                    <a href="{% url 'borrowed_books' %}" class="logOut"> Borrowed Books <i class="fas "></i></a>
+                    <hr>
+                    <a href="{% url 'studentsView' %}" class="logOut"> Students <i class="fas "></i></a>
+                    <hr>
+                    <a href="{% url 'logout' %}" class="logOut">Log Out <i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            {% elif user.is_authenticated and not user.is_staff%}
+                
+                <div class="list student">
+                    <a href="{% url 'editStudentProfile' %}" class="logOut"> Edit Profile <i class="fas "></i></a>
+                    <hr>
+                    <a href="{% url 'studentBooks' %}" class="logOut">My Books <i class="fas fa-shopping-cart"></i></a>
+                    <hr>
+                    <a href="{% url 'logout' %}" class="logOut">Log Out <i class="fas fa-sign-out-alt"></i></a>
+                </div>
+            {%else%}
+                <a href=" {% url 'login' %} " class="anon-log"> Login </a>
+            {%endif%}
+        </div>
+    </div>
+    <!-- USER NAME -->
+    <header id="home">
+        <div class="container">
+            <!-- Header Logo -->
+            <div class="logo">
+                <!-- <img src="pic/log.png"> -->
+            </div>
+            <!-- Header Links -->
+            <div class="links">
+                <!-- Links Icon -->
+                <span class="icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <!-- Ul li Links -->
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Start Search -->
+        <div class="search">
+            <form 
+            {%if user.is_staff%}
+                action="{% url 'searchStudent' %}" 
+            {%else%}
+                action="{% url 'searchBook' %}" 
+            {%endif%}
+            method="POST"
+            >
+                {% csrf_token %}
+                <input type="text" name="search_word" id="" placeholder="Search...">
+                <i class="fas fa-search"></i>
+            </form>
+        </div>
+        <!-- End Search -->
+    </header>
+    <!-- ********** End Header ********** -->
+
+
+    <div class="messages" style="text-align: center; color: rgb(228, 12, 12);">
+        {%if messages%}
+            {%for msg in messages%}
+                <h2>{{msg}}</h2>
+            {%endfor%}
+        {%endif%}
+    </div>
+    {%block login%}
+
+    {%endblock%}
+
+  
+   
+    {%block books%}
+   
+
+    {%endblock%}
+
+
+
+
+    <!-- ********** Start Contact Section ********** -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="head-sections">Contact</h2>
+            <p>We are born to create</p>
+            <div class="info">
+                <p class="label">Feel free to drop us a line at :</p>
+                <a href="mailto:@mail.com?subject=Contact" class="link">@mail.com</a>
+                <div class="social">
+                    Find Us On Social Networks
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ********** End Contact Section ********** -->
+    <!-- ********** Start Footer Section ********** -->
+    <footer>
+        &copy; 2021 Group All Right Reserved
+        <p>Designed by <a href="#">Abdullah</a></p>
+    </footer>
+    <!-- ********** End Footer Section ********** -->
+    
+</body>
+</html>

@@ -1,0 +1,415 @@
+/* Start Variables */
+:root {
+  --main-color: #333;
+  --secondary-color: #58706e;
+  --main-duration: 0.3s;
+}
+/* End Variables */
+/* ****************************** */
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: #f6f6f6;
+  padding-top: 10px;
+}
+
+/* ****************************** */
+.up-down {
+  display: flex;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  font-size: 30px;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  z-index: 222;
+  opacity: 0.8;
+}
+.up-down a {
+  color: white;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+/* ****************************** */
+/* Start container in media */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End container in media */
+/* End Global Rules */
+/* ****************************** */
+/* ********** Start Header ********** */
+/* Start User */
+.userName {
+  /* border: 1px solid red; */
+  height: 50px;
+  display: block;
+  position: relative;
+  background-color: white;
+  z-index: 22;
+  
+}
+
+.userName .user {
+  width: 230px;
+  margin-right: 15px;
+  float: right;
+  border: 1px solid #000;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  padding: 3px 10px;
+  position: relative;
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  transition: var(--main-duration);
+}
+.userName .user h1 {
+  font-size: 15px;
+  color: var(--main-color);
+}
+.userName .user .anon-log {
+  text-decoration: none;
+  color: var(--main-color);
+  font-size: 18px;
+  padding: 8px 16px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.userName .user .list {
+  border: 1px solid #000;
+  background-color: var(--main-color);
+  width: 230px;
+  padding: 3px 10px;
+  border-radius: 0px 0px 3px 3px;
+  position: absolute;
+  bottom: -343px;
+  z-index: 20;
+  display: none;
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  transition: var(--main-duration);
+}
+.userName .user .student {
+  bottom: -167px;
+}
+.userName .user .list a {
+  text-decoration: none;
+  padding: 10px 0;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  transition: var(--main-duration);
+}
+.userName .user .list a:hover {
+  padding-left: 7px;
+}
+.userName .user:hover .list {
+  bottom: -47;
+  display: inline;
+}
+/* End User */
+header {
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  display: flex;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+/* Start Logo */
+header .logo {
+  height: 55px;
+  width: 120px;
+  background-image: url("../pic/logo-removebg-preview.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  transition: var(--main-duration);
+}
+header .logo:hover {
+  transform: translateY(-4px);
+}
+/* End Logo */
+header .links {
+  position: relative;
+}
+header .links:hover .icon span:nth-child(2) {
+  width: 100%;
+}
+header .links .icon {
+  width: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+header .links .icon span {
+  background-color: var(--main-color);
+  height: 2px;
+  margin-bottom: 7px;
+}
+header .links .icon span:first-child {
+  width: 100%;
+}
+header .links .icon span:nth-child(2) {
+  width: 70%;
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  transition: var(--main-duration);
+}
+header .links .icon span:last-child {
+  width: 100%;
+}
+header .links ul {
+  background-color: #f6f6f6;
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 21px);
+  min-width: 220px;
+  display: none;
+  border-radius: 2px;
+  z-index: 1;
+}
+header .links ul::before {
+  content: "";
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent #f6f6f6 transparent;
+  position: absolute;
+  right: 7.5px;
+  top: -30px;
+}
+header .links:hover ul {
+  display: block;
+}
+header .links ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  color: var(--main-color);
+  -webkit-transition: var(--main-duration);
+  -moz-transition: var(--main-duration);
+  transition: var(--main-duration);
+}
+header .links ul li a:hover {
+  padding-left: 30px;
+}
+header .links ul li:not(:last-child) a {
+  border-bottom: 1px solid #aaa;
+}
+
+/* Start Search */
+header .search {
+  height: 45px;
+  width: 226px;
+  margin-left: 20px;
+  position: relative;
+  float: right;
+}
+header .search form {
+  position: relative;
+}
+header .search form input[type="text"] {
+  position: relative;
+  padding: 12px 5px;
+  width: 100%;
+  margin: 0;
+  border-radius: 20px;
+  border: 1px solid #999;
+  outline: none;
+  font-size: 18px;
+  color: #28505d;
+  background-color: rgb(245, 245, 245);
+}
+header .search form input[type="text"]:hover {
+  background-color: #ffffff;
+}
+header .search form i {
+  position: absolute;
+  font-size: 28px;
+  right: 7px;
+  top: 7px;
+  color: #758b94;
+}
+/* End Search */
+
+/* Start Media In Header */
+/* Medium */
+@media (min-width: 992px) {
+  /* Start Reset */
+  header .links .icon {
+    display: none;
+  }
+  /* End Reset */
+  header {
+    background-color: #fff;
+  }
+  header .links ul {
+    background-color: #fff;
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+    position: relative;
+    display: flex;
+  }
+  header .links ul::before {
+    display: none;
+  }
+  header .links:hover ul {
+    display: flex;
+  }
+  header .links ul li a {
+    display: block;
+    text-decoration: none;
+    width: 150px;
+    padding: 10px;
+    font-size: 18px;
+  }
+  header .links ul li a:hover {
+    padding-left: 15px;
+    padding-bottom: 5px;
+  }
+  header .links ul li a {
+    border-bottom: 1px solid #aaa;
+  }
+}
+/* End Media In Header */
+/* ********** End Header ********** */
+
+
+
+/* ********** Start Contact Section ********** */
+.contact {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: white;
+  overflow: hidden;
+}
+.contact .head-sections {
+  margin: 0;
+  font-size: 100px;
+  font-weight: 800;
+  text-align: center;
+  color: #ddd;
+  letter-spacing: -3px;
+}
+.contact .head-sections + p {
+  text-align: center;
+  margin-top: -25px;
+  font-size: 20px;
+  color: #999;
+}
+/* Media Head Sections */
+@media (max-width: 767px) {
+  .contact .head-sections {
+    font-size: 70px;
+  }
+  .contact .head-sections + p {
+    margin-top: -15px;
+    font-size: 14px;
+  }
+}
+
+.contact .info {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  text-align: center;
+}
+.contact .info .label {
+  font-size: 35px;
+  font-weight: 800;
+  color: #2c4755;
+  letter-spacing: -2px;
+  margin-bottom: 15px;
+}
+.contact .info .link {
+  display: block;
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.contact .info .social {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.contact .info .social i {
+  margin-left: 10px;
+  color: #2c4755;
+}
+@media (max-width: 767px) {
+  .contact .info .label,
+  .contact .info .link {
+    font-size: 25px;
+  }
+}
+/* ********** End Contact Section ********** */
+/* ********** Start Footer Section ********** */
+footer {
+  background-color: #2c4755;
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 18px;
+}
+footer a {
+  padding: 0 5px;
+  text-decoration: none;
+  color: #222;
+}
+/* ********** End Footer Section ********** */
